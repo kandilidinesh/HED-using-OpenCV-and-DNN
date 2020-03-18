@@ -6,4 +6,5 @@ In our case, the processing time is for CPU and not for GPU.
  
 ### Reference Link: 
 https://www.pyimagesearch.com/2019/03/04/holistically-nested-edge-detection-with-opencv-and-deep-learning/
+
 For more explanation, refer my documentation in this repo.
