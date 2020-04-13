@@ -78,9 +78,6 @@ endCanny = time.time()
 secondsCanny = endCanny - startCanny
 print("Time taken for Canny: "+ str(secondsCanny) + " seconds.")
 
-# HED Start time
-startHED = time.time()
-
 # construct a blob out of the input image for the Holistically-Nested
 # Edge Detector
 blob = cv2.dnn.blobFromImage(image, scalefactor=1.0, size=(W, H),
@@ -91,15 +88,21 @@ blob = cv2.dnn.blobFromImage(image, scalefactor=1.0, size=(W, H),
 # to compute the edges
 print("[INFO] performing holistically-nested edge detection...")
 net.setInput(blob)
+
+# HED Start time
+startHED = time.time()
+
+#Inference
 hed = net.forward()
-hed = cv2.resize(hed[0, 0], (W, H))
-hed = (255 * hed).astype("uint8")
 
 #HED End Time
 endHED = time.time()
-
 secondsHED = endHED - startHED
 print("Time taken for HED: " + str(secondsHED) + " seconds.")
+
+hed = cv2.resize(hed[0, 0], (W, H))
+hed = (255 * hed).astype("uint8")
+
 # show the output edge detection results for Canny and
 # Holistically-Nested Edge Detection
 cv2.imshow("Input", image)
