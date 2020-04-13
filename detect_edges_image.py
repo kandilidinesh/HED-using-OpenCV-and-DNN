@@ -103,9 +103,13 @@ print("Time taken for HED: " + str(secondsHED) + " seconds.")
 hed = cv2.resize(hed[0, 0], (W, H))
 hed = (255 * hed).astype("uint8")
 
+#Write the output file
+filename = '/home/cdi/dinesh/hed_using_opencv_dnn/results/output.png'
+cv2.imwrite(filename, hed)
+
 # show the output edge detection results for Canny and
 # Holistically-Nested Edge Detection
-cv2.imshow("Input", image)
-cv2.imshow("Canny", canny)
-cv2.imshow("HED", hed)
-cv2.waitKey(0)
+#cv2.imshow("Input", image)
+#cv2.imshow("Canny", canny)
+#cv2.imshow("HED", hed)
+#cv2.waitKey(0)
